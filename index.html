@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Hai Kamu</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .card {
+      background: #fff;
+      padding: 35px;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+      text-align: center;
+      max-width: 420px;
+      animation: fadeIn 0.6s ease;
+    }
+
+    h1, h2, p {
+      color: #555;
+    }
+
+    button {
+      margin-top: 15px;
+      margin-right: 10px;
+      padding: 10px 20px;
+      background: #7e57c2;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #5e35b1;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <!-- Foto orang -->
+    <img src="https://files.catbox.moe/m4beux.jpeg" alt="Foto Orang" class="profile-img">
+
+    <!-- Semua langkah -->
+    <div id="step1">
+      <h1>Halo nana gue ramsi gimana kabar elo? baek?</h1>
+      <button onclick="nextStep('step1', 'step2')">Klik untuk lanjut</button>
+    </div>
+
+    <div id="step2" class="hidden">
+      <p>Gue mao nanya cok jawab yak</p>
+      <button onclick="nextStep('step2', 'step3')">Lanjut</button>
+    </div>
+
+    <div id="step3" class="hidden">
+      <p>Lo sore kemana aja dah?</p>
+      <button onclick="nextStep('step3', 'options')">Jawab yuk</button>
+    </div>
+
+    <div id="options" class="hidden">
+      <p>Pilih salah satu:</p>
+      <button onclick="showResponse('resTidur')">Gue Tidur 😴</button>
+      <button onclick="showResponse('resPergi')">Gue Pergi 😎</button>
+    </div>
+
+    <!-- Jawaban -->
+    <div id="resTidur" class="hidden">
+      <p>Yeuuuuu kocakkk lo mahh 🗿<br>
+      Semoga tidurnya nyenyak yaakk jangan lupa berdoa elu biar mimpi indah</p>
+    </div>
+
+    <div id="resPergi" class="hidden">
+      <p>Pergi kemana elo anjer 😏<br>
+      Hati-hati ya kalo keluar nanti di culik brondong wkaka</p>
+    </div>
+  </div>
+
+  <script>
+    function nextStep(currentId, nextId) {
+      document.getElementById(currentId).style.display = 'none';
+      document.getElementById(nextId).style.display = 'block';
+    }
+
+    function showResponse(responseId) {
+      document.getElementById("options").style.display = 'none';
+      document.getElementById("resTidur").style.display = 'none';
+      document.getElementById("resPergi").style.display = 'none';
+      document.getElementById(responseId).style.display = 'block';
+    }
+  </script>
+</body>
+</html>
